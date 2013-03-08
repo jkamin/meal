@@ -42,13 +42,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
 
-    respond_to do |format|
-      if @user.save
-        session[:user_id] = @user_id
-        redirect_to root_url, notice:"Thank you for signing up!"
-      else
-        render "new"
-      end
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to root_url, notice: "Thank you for signing up!"
+    else
+      render "new"
     end
   end
 

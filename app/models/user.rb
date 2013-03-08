@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-
   EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :name, :presence => true,
@@ -14,6 +13,5 @@ class User < ActiveRecord::Base
   validates_format_of :email, :with => EmailRegex
 
   has_many :posts
-
 
 end
