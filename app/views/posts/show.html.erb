@@ -9,7 +9,9 @@
   <b>Review:</b>
   <%= @post.review %>
 </p>
-
+<%= image_tag @post.attachment.url %>
+<%= image_tag @post.attachment.url(:medium) %>
+<%= image_tag @post.attachment.url(:thumb) %>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :city, :email, :name, :password, :password_confirmation
 
+  
   has_secure_password
 
   EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

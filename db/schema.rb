@@ -11,14 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130308003446) do
+ActiveRecord::Schema.define(:version => 20130310182016) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.string   "review"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.integer  "stars"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
   end
 
   create_table "restaurants", :force => true do |t|
@@ -37,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20130308003446) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "password_digest"
+    t.string   "username"
   end
 
 end
