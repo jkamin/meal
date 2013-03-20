@@ -20,6 +20,14 @@
   <%= @restaurant.state %>
 </p>
 
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@restaurant.latitude}%2C#{@restaurant.longitude}" %>
+
+<h3>Nearby Restaurants</h3>
+<ul>
+<% for restaurant in @restaurant.nearbys(10) %>
+<li><%= link_to restaurant.name, restaurant %> (<%= restaurant.distance.round(2) %> miles away)</li>
+<% end %>
+</ul>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
